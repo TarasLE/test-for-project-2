@@ -1,1 +1,1 @@
-export const { error } = require('@pnotify/core');
+// export const { error } = require('@pnotify/core');

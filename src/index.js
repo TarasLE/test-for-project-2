@@ -1,89 +1,147 @@
-import './css/styles.css';
-import ApiServices from './js/components/apiService'
-import { refs } from './js/components/refs'
-import imageCardTpl from './templates/imageCardTpl.hbs'
-import * as basicLightbox from 'basiclightbox'
-import '../node_modules/basiclightbox/dist/basicLightbox.min.css'
-import '@pnotify/core/dist/BrightTheme.css';
-import '@pnotify/core/dist/PNotify.css';
-import { error } from './js/components/variables'
+// import './css/styles.css';
+// import ApiServices from './js/components/apiService'
+// import { refs } from './js/components/refs'
+// import imageCardTpl from './templates/imageCardTpl.hbs'
+// import * as basicLightbox from 'basiclightbox'
+// import '../node_modules/basiclightbox/dist/basicLightbox.min.css'
+// import '@pnotify/core/dist/BrightTheme.css';
+// import '@pnotify/core/dist/PNotify.css';
+// import { error } from './js/components/variables'
 
-console.log("Index.js is ACTIVE");
+// console.log("Index.js is ACTIVE");
 
-const apiServices = new ApiServices();
+// const apiServices = new ApiServices();
 
-let searchQuery = '';
-let scrollSize;
-refs.searchForm.addEventListener('submit', onSearch)
-refs.loadMoreBtn.addEventListener('click', onLoadMore)
-refs.imageContainer.addEventListener('click', onPictureClick)
-
-
+// let searchQuery = '';
+// let scrollSize;
+// refs.searchForm.addEventListener('submit', onSearch)
+// refs.loadMoreBtn.addEventListener('click', onLoadMore)
+// refs.imageContainer.addEventListener('click', onPictureClick)
 
 
 
-async function onSearch(event) {
-    event.preventDefault();
-    clearImageContainer()
-     apiServices.query = event.currentTarget.elements.query.value.trim();
+
+
+// async function onSearch(event) {
+//     event.preventDefault();
+//     clearImageContainer()
+//      apiServices.query = event.currentTarget.elements.query.value.trim();
  
-    if (apiServices.query.length === 0) {
-        return
-    } else{
+//     if (apiServices.query.length === 0) {
+//         return
+//     } else{
         
     
-    apiServices.resetPage();
+//     apiServices.resetPage();
 
-        await apiServices.fetchImages().then(data => {
-           if (data.length == 0) {
-                 error({
-                delay: 1000,
-                text: 'Incorrect name. Please check and try again',
-                type: 'info'
-                });
-        } else {
-            appendImagesMarkUp(data)
-            }
-        })
-        scrollSize = refs.imageContainer.clientHeight;
-        }
-}
+//         await apiServices.fetchImages().then(data => {
+//            if (data.length == 0) {
+//                  error({
+//                 delay: 1000,
+//                 text: 'Incorrect name. Please check and try again',
+//                 type: 'info'
+//                 });
+//         } else {
+//             appendImagesMarkUp(data)
+//             }
+//         })
+//         scrollSize = refs.imageContainer.clientHeight;
+//         }
+// }
  
-async function onLoadMore() {
-    if (apiServices.query.length === 0 || refs.imageContainer.innerHTML.length == 0) {
-        return
-    } else {
-    const scrollRevers = scrollSize * (apiServices.page - 1);
-    await apiServices.fetchImages().then(appendImagesMarkUp)
-         window.scrollTo({ top: scrollRevers, behavior: "smooth" })
-         }
+// async function onLoadMore() {
+//     if (apiServices.query.length === 0 || refs.imageContainer.innerHTML.length == 0) {
+//         return
+//     } else {
+//     const scrollRevers = scrollSize * (apiServices.page - 1);
+//     await apiServices.fetchImages().then(appendImagesMarkUp)
+//          window.scrollTo({ top: scrollRevers, behavior: "smooth" })
+//          }
   
-}
+// }
 
-function appendImagesMarkUp(images) {
+// function appendImagesMarkUp(images) {
 
-    refs.imageContainer.insertAdjacentHTML('beforeend', imageCardTpl(images))
-}
+//     refs.imageContainer.insertAdjacentHTML('beforeend', imageCardTpl(images))
+// }
 
-function clearImageContainer() {
-    refs.imageContainer.innerHTML = '';
-}
+// function clearImageContainer() {
+//     refs.imageContainer.innerHTML = '';
+// }
 
-const instance = basicLightbox.create(`
-    <h1>Dynamic Content</h1>
-    <p>You can set the content of the lightbox with JS.</p>
-`)
+// const instance = basicLightbox.create(`
+//     <h1>Dynamic Content</h1>
+//     <p>You can set the content of the lightbox with JS.</p>
+// `)
 
-function onPictureClick(event) {
+// function onPictureClick(event) {
  
-  if (event.target.nodeName !== "IMG") {
-    return
-  } else
+//   if (event.target.nodeName !== "IMG") {
+//     return
+//   } else
   
-    event.preventDefault();
-    const instance = basicLightbox.create(`
-    <img src="${event.target.dataset.source}" width="800" height="600">
-`)
-  instance.show()
-  }
+//     event.preventDefault();
+//     const instance = basicLightbox.create(`
+//     <img src="${event.target.dataset.source}" width="800" height="600">
+// `)
+//   instance.show()
+//   }
       
+
+console.log("this is test js for project 2");
+
+const API_CATEGORIES = 'https://callboard-backend.herokuapp.com/call/categories';
+
+ async function postData(url = API_CATEGORIES, method = 'GET') {
+      const response = await fetch(url, {
+          method: method,
+          headers: {
+              'Content-Type': 'application/json',
+               Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmQzMzYxZjgwZGFiZDAwMTc5ZDdmZjYiLCJzaWQiOiI1ZmQzMzY0MjgwZGFiZDAwMTc5ZDdmZjkiLCJpYXQiOjE2MDc2Nzc1MDYsImV4cCI6MTYwNzY4MTEwNn0.RnvvG68q1yWWaIVr777cLMJg-eNwugnc7x5ldqFuoNM',
+       
+          },
+          redirect: 'follow',
+          referrerPolicy: 'no-referrer'
+     
+      });
+          return await response.json();
+    
+ };
+
+
+  function fetchImages() {
+        const option = {
+        headers: {}
+    }
+
+    const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=cat&page=1&per_page=12&key=19125806-9a56a48a4edb0ea3b4b1e3bdb`
+  
+        return fetch(url, option).then(response => response.json()).then(data => {
+                // this.incrementPage();
+                return data.hits;
+        });
+  }
+    
+// function fetchCategories() {
+
+//     const option = {
+//           method: 'GET',
+//           headers: {
+//               'Content-Type': 'application/json',
+//                Authorization:
+//         'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmQzMzYxZjgwZGFiZDAwMTc5ZDdmZjYiLCJzaWQiOiI1ZmQzMzY0MjgwZGFiZDAwMTc5ZDdmZjkiLCJpYXQiOjE2MDc2Nzc1MDYsImV4cCI6MTYwNzY4MTEwNn0.RnvvG68q1yWWaIVr777cLMJg-eNwugnc7x5ldqFuoNM',
+       
+//           },
+//     }
+
+//     const url = `https://callboard-backend.herokuapp.com/call/categories`
+
+//     return fetch(url, option).then(response => response.json());
+// };
+   
+
+console.log(fetchImages()); 
+// console.log(fetchCategories());
+ console.log(postData());
+
