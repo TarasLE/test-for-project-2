@@ -88,7 +88,7 @@
 //   }
       
 
-console.log("this is test js for project 2");
+// console.log("this is test js for project 2");
 
 // const API_CATEGORIES = 'https://callboard-backend.herokuapp.com/call/categories';
 
@@ -334,22 +334,22 @@ function fetchCategories() {
 
 function renderCardsToCategories(category) {
     const refOnSaleCardContainer = document.querySelector('.cont-on-sale');
-    console.log(refOnSaleCardContainer);
+    // console.log(refOnSaleCardContainer);
     category.map(element => {
-        console.log(element.category); if (element.isOnSale)
+        if (element.isOnSale)
         { refOnSaleCardContainer.insertAdjacentHTML('beforeend', CardsInitialTpl({ element })) }
     });
-        console.log(`category from render cards ${category}`);
+        // console.log(`category from render cards ${category}`);
         var refCurretnCategory = document.querySelector(`.cont-initial-${currentCategory}`)
         refCurretnCategory.insertAdjacentHTML('beforeend', CardsInitialTpl(category));
         
 }
 
-function renderCardsOnSale(category) {
+// function renderCardsOnSale(category) {
         
-        refOnSaleCardContainer.insertAdjacentHTML('beforeend', CardsInitialTpl(category));
+//         refOnSaleCardContainer.insertAdjacentHTML('beforeend', CardsInitialTpl(category));
         
-}
+// }
 
 
 
@@ -377,7 +377,7 @@ function fetchGoodsByCategory(element) {
             {
                 // data.map(element => { console.log(`from fetch element.id ${element.userId}`) })
                 // data.map(element => { if (element.isOnSale) { renderCardsOnSale(element) } })
-                data.map(element => { if(element.isOnSale){console.log(element)}})
+                // data.map(element => { if(element.isOnSale){console.log(element)}})
                 // console.log(`from fetch ${ data }`);
                 currentCategory = element.split(' ').join('')
                 // console.log(`from fetch ${currentCategory}`);
