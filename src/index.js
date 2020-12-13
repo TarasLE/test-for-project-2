@@ -90,39 +90,40 @@
 
 console.log("this is test js for project 2");
 
-const API_CATEGORIES = 'https://callboard-backend.herokuapp.com/call/categories';
+// const API_CATEGORIES = 'https://callboard-backend.herokuapp.com/call/categories';
 
- async function postData(url = API_CATEGORIES, method = 'GET') {
-      const response = await fetch(url, {
-          method: method,
-          headers: {
-              'Content-Type': 'application/json',
-               Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmQzMzYxZjgwZGFiZDAwMTc5ZDdmZjYiLCJzaWQiOiI1ZmQzMzY0MjgwZGFiZDAwMTc5ZDdmZjkiLCJpYXQiOjE2MDc2Nzc1MDYsImV4cCI6MTYwNzY4MTEwNn0.RnvvG68q1yWWaIVr777cLMJg-eNwugnc7x5ldqFuoNM',
+//  async function postData(url = API_CATEGORIES, method = 'GET') {
+//       const response = await fetch(url, {
+//           method: method,
+//           headers: {
+//               'Content-Type': 'application/json',
+//                Authorization:
+//         'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmQzMzYxZjgwZGFiZDAwMTc5ZDdmZjYiLCJzaWQiOiI1ZmQzMzY0MjgwZGFiZDAwMTc5ZDdmZjkiLCJpYXQiOjE2MDc2Nzc1MDYsImV4cCI6MTYwNzY4MTEwNn0.RnvvG68q1yWWaIVr777cLMJg-eNwugnc7x5ldqFuoNM',
        
-          },
-          redirect: 'follow',
-          referrerPolicy: 'no-referrer'
+//           },
+//           redirect: 'follow',
+//           referrerPolicy: 'no-referrer'
      
-      });
-          return await response.json();
+//       });
+//           return await response.json();
     
- };
+//  };
 
 
-  function fetchImages() {
-        const option = {
-        headers: {}
-    }
+//   function fetchImages() {
+//         const option = {
+//         headers: {}
+//     }
 
-    const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=cat&page=1&per_page=12&key=19125806-9a56a48a4edb0ea3b4b1e3bdb`
+//     const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=cat&page=1&per_page=12&key=19125806-9a56a48a4edb0ea3b4b1e3bdb`
   
-        return fetch(url, option).then(response => response.json()).then(data => {
-                // this.incrementPage();
-                return data.hits;
-        });
-  }
+//         return fetch(url, option).then(response => response.json()).then(data => {
+//                 // this.incrementPage();
+//                 return data.hits;
+//         });
+//   }
     
+//   console.log(fetchImages());
 // function fetchCategories() {
 
 //     const option = {
@@ -141,7 +142,299 @@ const API_CATEGORIES = 'https://callboard-backend.herokuapp.com/call/categories'
 // };
    
 
-console.log(fetchImages()); 
+// console.log(fetchImages()); 
 // console.log(fetchCategories());
- console.log(postData());
+//  console.log(postData());
 
+
+
+
+
+// console.log(refOnsaleContainer);
+
+// function RenderContainerOnsale() {
+//     refOnsaleContainer.insertAdjacentHTML('beforeend', containerOnsaleTpl());
+   
+//   }
+ 
+// RenderContainerOnsale();
+
+
+
+// console.log(refOnsaleContainer);
+
+// function RenderContainerInitial() {
+//     refInitialContainer.insertAdjacentHTML('beforeend', containerOnsaleTpl());
+   
+//   }
+ 
+// RenderContainerInitial();
+
+// const API_CATEGORIES = 'https://callboard-backend.herokuapp.com/call/specific/transport';
+// async function getCategories(url = API_CATEGORIES, method = 'GET') {
+//       const response = await fetch(url, {
+//           method: method,
+//           headers: {
+//               'Content-Type': 'application/json',
+//                Authorization:
+//         'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmQzMzYxZjgwZGFiZDAwMTc5ZDdmZjYiLCJzaWQiOiI1ZmQzMzY0MjgwZGFiZDAwMTc5ZDdmZjkiLCJpYXQiOjE2MDc2Nzc1MDYsImV4cCI6MTYwNzY4MTEwNn0.RnvvG68q1yWWaIVr777cLMJg-eNwugnc7x5ldqFuoNM',
+       
+//           },
+//           redirect: 'follow',
+//           referrerPolicy: 'no-referrer'
+     
+//       });
+//     return await response.json();
+// };
+  
+// console.log(getCategories());
+// const categories = [...getCategories()];
+// console.log(categories);
+
+// import CardsInitialTpl from './templates/initial page/card-initial.hbs';
+// import CardsOnSalelTpl from './templates/initial page/card-on-sale.hbs';
+
+// const refOnSaleCardContainer = document.querySelector('.cards-container-onsale')
+// const refInitialCardContainer = document.querySelector('.cards-container-initial')
+
+// function renderCardsToInitialCategory() {
+// refInitialCardContainer.insertAdjacentHTML('beforeend', CardsInitialTpl());
+// }
+
+// function renderCardsOnSaleCategory() {
+// refOnSaleCardContainer.insertAdjacentHTML('beforeend', CardsOnSalelTpl());
+// }
+
+// function renderCardsToCategories(category) {
+//     if(category.isOnSale){
+//         refOnSaleCardContainer.insertAdjacentHTML('beforeend', CardsOnSalelTpl(category))
+//     }
+//     else {
+//         refInitialCardContainer.insertAdjacentHTML('beforeend', CardsInitialTpl(category));
+//     }
+    
+// }
+
+// function cardsMarkUp(element) {
+//     fetchGoodsByCategory(element).then(renderCardsToCategories);
+// }
+
+// cardsMarkUp("trade");
+
+// function fetchGoodsByCategory(element) {
+    
+//     const option = {
+//           method: 'GET',
+//           headers: {
+//               'Content-Type': 'application/json',
+//                Authorization:
+//         'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmQzMzYxZjgwZGFiZDAwMTc5ZDdmZjYiLCJzaWQiOiI1ZmQzMzY0MjgwZGFiZDAwMTc5ZDdmZjkiLCJpYXQiOjE2MDc2Nzc1MDYsImV4cCI6MTYwNzY4MTEwNn0.RnvvG68q1yWWaIVr777cLMJg-eNwugnc7x5ldqFuoNM',
+       
+//           },
+//     }
+    
+//             const url = `https://callboard-backend.herokuapp.com/call/specific/${element}`
+//             const response = fetch(url, option).then(response => response.json()).then(data =>
+    
+//             {
+                
+//         return data;
+//             });
+//             return response;
+       
+// };
+// console.log(fetchGoodsByCategory("trade"));
+
+// renderCardsToCategories( fetchGoodsByCategory("trade") )
+
+
+// function fetchGoodsByCategory() {
+    
+//     const option = {
+//           method: 'GET',
+//           headers: {
+//               'Content-Type': 'application/json',
+//                Authorization:
+//         'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmQzMzYxZjgwZGFiZDAwMTc5ZDdmZjYiLCJzaWQiOiI1ZmQzMzY0MjgwZGFiZDAwMTc5ZDdmZjkiLCJpYXQiOjE2MDc2Nzc1MDYsImV4cCI6MTYwNzY4MTEwNn0.RnvvG68q1yWWaIVr777cLMJg-eNwugnc7x5ldqFuoNM',
+       
+//           },
+//     }
+//     fetchCategories().then(data => {
+//         data.forEach(element => {
+//             const url = `https://callboard-backend.herokuapp.com/call/specific/${element}`
+//             const response = fetch(url, option).then(response => response.json()).then(data =>
+    
+//             {
+                
+//         return data;
+//             });
+//             return response;
+//         });
+       
+//     })
+// };
+
+
+
+
+   
+// console.log(fetchCategories());
+
+import testTpl from './templates/initial page/test.hbs';
+
+
+// console.log(MainContainer);
+
+// function fillNameCategory(category) {
+// MainContainer.insertAdjacentHTML('beforeend',category)
+// }
+
+// ----------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------
+import containerOnsaleTpl from './templates/initial page/containerOnSaleGood.hbs';
+import containerInitialTpl from './templates/initial page/container-initial.hbs';
+import CardsInitialTpl from './templates/initial page/card-initial.hbs';
+import CardsOnSalelTpl from './templates/initial page/card-on-sale.hbs';
+
+
+// const refInitialContainer = document.querySelector('.cont-initial')
+// const refOnsaleContainer = document.querySelector('.cont-on-sale')
+// const refOnSaleCardContainer = document.querySelector('.cont-on-sale')
+// const refInitialCardContainer = document.querySelector('.cards-container-initial')
+const refMainContainer = document.querySelector('.main-containet')
+var currentCategory;
+// var categoriesArr = [];
+
+// console.log(refOnSaleCardContainer);
+function fetchCategories() {
+
+    const option = {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+               Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmQzMzYxZjgwZGFiZDAwMTc5ZDdmZjYiLCJzaWQiOiI1ZmQzMzY0MjgwZGFiZDAwMTc5ZDdmZjkiLCJpYXQiOjE2MDc2Nzc1MDYsImV4cCI6MTYwNzY4MTEwNn0.RnvvG68q1yWWaIVr777cLMJg-eNwugnc7x5ldqFuoNM',
+       
+          },
+    }
+
+    const url = `https://callboard-backend.herokuapp.com/call/categories`
+
+    const response = fetch(url, option).then(response => response.json()).then(data =>
+    {
+       
+        return data;
+    });
+    return response;
+};
+
+function renderCardsToCategories(category) {
+    const refOnSaleCardContainer = document.querySelector('.cont-on-sale');
+    console.log(refOnSaleCardContainer);
+    category.map(element => {
+        console.log(element.category); if (element.isOnSale)
+        { refOnSaleCardContainer.insertAdjacentHTML('beforeend', CardsInitialTpl({ element })) }
+    });
+        console.log(`category from render cards ${category}`);
+        var refCurretnCategory = document.querySelector(`.cont-initial-${currentCategory}`)
+        refCurretnCategory.insertAdjacentHTML('beforeend', CardsInitialTpl(category));
+        
+}
+
+function renderCardsOnSale(category) {
+        
+        refOnSaleCardContainer.insertAdjacentHTML('beforeend', CardsInitialTpl(category));
+        
+}
+
+
+
+function cardsMarkUp(element) {
+    fetchGoodsByCategory(element).then(renderCardsToCategories);
+    
+}
+
+
+function fetchGoodsByCategory(element) {
+    
+    const option = {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+               Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmQzMzYxZjgwZGFiZDAwMTc5ZDdmZjYiLCJzaWQiOiI1ZmQzMzY0MjgwZGFiZDAwMTc5ZDdmZjkiLCJpYXQiOjE2MDc2Nzc1MDYsImV4cCI6MTYwNzY4MTEwNn0.RnvvG68q1yWWaIVr777cLMJg-eNwugnc7x5ldqFuoNM',
+       
+          },
+    }
+    
+            const url = `https://callboard-backend.herokuapp.com/call/specific/${element}`
+            const response = fetch(url, option).then(response => response.json()).then(data =>
+             
+            {
+                // data.map(element => { console.log(`from fetch element.id ${element.userId}`) })
+                // data.map(element => { if (element.isOnSale) { renderCardsOnSale(element) } })
+                data.map(element => { if(element.isOnSale){console.log(element)}})
+                // console.log(`from fetch ${ data }`);
+                currentCategory = element.split(' ').join('')
+                // console.log(`from fetch ${currentCategory}`);
+        return data;
+            });
+            // console.log(response);
+            return response;
+       
+};
+
+
+
+function renderContainers(element) {
+refMainContainer.insertAdjacentHTML('beforeend', containerInitialTpl(element))
+}
+
+
+
+function RenderContainerOnsale() {
+    refMainContainer.insertAdjacentHTML('afterbegin', containerOnsaleTpl());
+   
+  }
+
+function RenderContainerInitial() {
+    fetchCategories().then(data => {
+            
+            data.forEach(element => {
+                currentCategory = element.split(' ').join(''),
+                // console.log(currentCategory),
+                    renderContainers(element.split(' ').join(''))
+                    // console.log(`render container ${element}`) ;
+                // cardsMarkUp(element)
+                //  console.log(`render cards ${element}`) ;
+              
+        });
+        }
+    )
+}
+
+function FillContainers() {
+    fetchCategories().then(data => {
+            
+            data.forEach(element => {
+                // currentCategory = element.split(' ').join(''),
+                // categoriesArr.push(currentCategory)
+                cardsMarkUp(element)
+                             
+        });
+        }
+    )
+}
+  
+RenderContainerOnsale();
+RenderContainerInitial();
+FillContainers();
+// console.log(categoriesArr);
+// console.log("test");
+// const textT = 'bussiness and work';
+// textT.trim()
+// console.log(textT.trim(input));
