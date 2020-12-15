@@ -1,15 +1,14 @@
 
-// import containerOnsaleTpl from './templates/initial page/containerOnSaleGood.hbs';
 import containerInitialTpl from './templates/initial page/container-initial.hbs';
 import CardsInitialTpl from './templates/initial page/card-initial.hbs';
 
+// import containerOnsaleTpl from '../../templates/container-on-sale-good.hbs';
+// import containerInitialTpl from '../../templates/container-initial.hbs';
+// import CardsInitialTpl from '../../templates/card-initial.hbs';
+// import CardsOnSaleTpl from '../../templates/card-onsale.hbs';
 
 
-
-let refMainContainer = document.querySelector('.main-containet');
-const refPaginationStartCategories = document.querySelector('.all-button');
-console.log(refPaginationStartCategories);
-refPaginationStartCategories.addEventListener('click', mainPagination)
+const refMainContainer = document.querySelector('.main-containet')
 var currentCategory;
 let currentPageButton = 1;
 
@@ -21,20 +20,7 @@ const categoryNames = {
     businessAndServices: "БІЗНЕС ТА ПОСЛУГИ",
     work: "РОБОТА",
     electronics: "ЕЛЕКТРОНІКА",
-    property: "НЕРУХОМІСТЬ",
-    transport: "ТРАНСПОРТ",
-    trade: "ОБМІН"
-}
-
-function mainPagination(event) {
-    // event.preventDefault();
-       
-    if (event.target.className = 'work-button') {
-        refMainContainer.innerHTML = '';
-        currentPageButton = event.target.innerText;
-        renderCategories();
-        console.log(currentPageButton);
-    }
+    trade: "НЕРУХОМІСТЬ"
 }
 
 
