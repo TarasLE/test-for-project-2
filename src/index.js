@@ -1,5 +1,4 @@
 
-// import containerOnsaleTpl from './templates/initial page/containerOnSaleGood.hbs';
 import containerInitialTpl from './templates/initial page/container-initial.hbs';
 import CardsInitialTpl from './templates/initial page/card-initial.hbs';
 
@@ -12,6 +11,20 @@ console.log(refPaginationStartCategories);
 refPaginationStartCategories.addEventListener('click', mainPagination)
 var currentCategory;
 let currentPageButton = 1;
+
+const listCategories = document.querySelector('.all-button');
+
+const searchCategories = (e) => {
+    const elem = e.target;
+    if (!elem.classList.contains("number-button")) return
+    e.preventDefault();
+    let value = elem.getAttribute('work-button');
+    // updateState(`/category?value=${value}`);
+    // updatedContent()
+    console.log(value);
+}
+
+listCategories.addEventListener('click', searchCategories)
 
 const categoryNames = {
     sales1: "РОЗПРОДАЖ", 
@@ -30,13 +43,16 @@ function mainPagination(event) {
     // event.preventDefault();
        
     if (event.target.className = 'work-button') {
-        refMainContainer.innerHTML = '';
+        clearCategoryContainer()
         currentPageButton = event.target.innerText;
         renderCategories();
         console.log(currentPageButton);
     }
 }
 
+function clearCategoryContainer() {
+   refMainContainer.innerHTML = ''; 
+}
 
 function fillNameOfContainers(name) {
     let refNameCardContainer = document.querySelector(`.cont-name-${name}`);

@@ -8,7 +8,12 @@ import CardsInitialTpl from './templates/initial page/card-initial.hbs';
 // import CardsOnSaleTpl from '../../templates/card-onsale.hbs';
 
 
-const refMainContainer = document.querySelector('.main-containet')
+
+
+let refMainContainer = document.querySelector('.main-containet');
+const refPaginationStartCategories = document.querySelector('.all-button');
+console.log(refPaginationStartCategories);
+refPaginationStartCategories.addEventListener('click', mainPagination)
 var currentCategory;
 let currentPageButton = 1;
 
@@ -20,9 +25,25 @@ const categoryNames = {
     businessAndServices: "БІЗНЕС ТА ПОСЛУГИ",
     work: "РОБОТА",
     electronics: "ЕЛЕКТРОНІКА",
-    trade: "НЕРУХОМІСТЬ"
+    property: "НЕРУХОМІСТЬ",
+    transport: "ТРАНСПОРТ",
+    trade: "ОБМІН"
 }
 
+function mainPagination(event) {
+    // event.preventDefault();
+       
+    if (event.target.className = 'work-button') {
+        clearCategoryContainer()
+        currentPageButton = event.target.innerText;
+        renderCategories();
+        console.log(currentPageButton);
+    }
+}
+
+function clearCategoryContainer() {
+   refMainContainer.innerHTML = ''; 
+}
 
 function fillNameOfContainers(name) {
     let refNameCardContainer = document.querySelector(`.cont-name-${name}`);
@@ -80,6 +101,7 @@ function renderCategories() {
 }
 
 renderCategories();
+
 
 
 
