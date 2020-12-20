@@ -1,4 +1,4 @@
-import { updateState, updatedContent } from '../rout-main'
+import { updateState, updatedContent } from './rout-main'
 
 const listCategories = document.querySelector('.list-categories');
 
